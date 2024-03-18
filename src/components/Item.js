@@ -3,9 +3,9 @@ import React, { useState } from "react";
 function Item({ name, category }) {
   const [isInCart, setIsInCart] = useState(false);
 
-  function handleAddToCartClick() {
-    setIsInCart((isInCart) => !isInCart);
-  }
+  const handleAddToCartClick = () => {
+    setIsInCart((prevIsInCart) => !prevIsInCart);
+  };
 
   return (
     <li className={isInCart ? "in-cart" : ""}>
@@ -15,7 +15,7 @@ function Item({ name, category }) {
         className={isInCart ? "remove" : "add"}
         onClick={handleAddToCartClick}
       >
-        {isInCart ? "Remove From" : "Add to"} Cart
+        {isInCart ? "Remove From Cart" : "Add to Cart"}
       </button>
     </li>
   );
